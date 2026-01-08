@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Gemini" class="gemini-logo">
+                <span class="app-title">Gemini</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn" id="voiceToggle" title="Voice On/Off">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button class="nav-btn" id="darkModeToggle" title="Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Chat Container -->
+    <main class="chat-container">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-content">
+                <div class="welcome-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Gemini" class="welcome-gemini-logo">
+                </div>
+                <h1 class="welcome-title">Hello, I'm Roshan</h1>
+                <p class="welcome-subtitle">How can I help you today?</p>
+                
+                <div class="suggestion-cards">
+                    <div class="suggestion-card" data-prompt="Write a creative story about space exploration">
+                        <i class="fas fa-rocket"></i>
+                        <span>Write a creative story</span>
+                    </div>
+                    <div class="suggestion-card" data-prompt="Explain quantum physics in simple terms">
+                        <i class="fas fa-atom"></i>
+                        <span>Explain complex topics</span>
+                    </div>
+                    <div class="suggestion-card" data-prompt="Help me plan a healthy meal for the week">
+                        <i class="fas fa-utensils"></i>
+                        <span>Plan meals and recipes</span>
+                    </div>
+                    <div class="suggestion-card" data-prompt="Write a professional email for a job application">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Draft professional emails</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-avatar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Gemini">
+            </div>
+            <div class="typing-content">
+                <div class="typing-animation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Input Area -->
+    <div class="input-container">
+        <div class="input-wrapper">
+            <button class="input-btn attach-btn" id="fileUpload" title="Upload File">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <input type="file" id="fileInput" style="display: none;" accept="image/*,video/*,audio/*,.pdf,.txt,.doc,.docx">
+            
+            <div class="message-input-container">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Enter a prompt here"
+                    rows="1"
+                ></textarea>
+            </div>
+            
+            <button class="input-btn mic-btn" id="micButton" title="Voice Input">
+                <i class="fas fa-microphone"></i>
+            </button>
+            
+            <button class="input-btn send-btn" id="sendButton" title="Send Message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        
+        <!-- File Preview -->
+        <div class="file-preview" id="filePreview" style="display: none;">
+            <div class="file-preview-content">
+                <div class="file-info">
+                    <i class="fas fa-file"></i>
+                    <span class="file-name"></span>
+                    <span class="file-size"></span>
+                </div>
+                <button class="remove-file" id="removeFile">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/speech.js"></script>
+    <script src="js/fileHandler.js"></script>
+    <script src="js/messageActions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
